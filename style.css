@@ -1,0 +1,118 @@
+/* ----------------navbar-section---------------------- */
+
+
+.nav-part img{
+    height: 50px;
+    width: 50px;
+}
+.nav-part a{
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.user img{
+    height: 30px;
+    width: 30px;
+    margin-left: 770px;
+    margin-top: 7px;
+}
+#user-name{
+    margin-left: 10px;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    
+}
+
+
+
+
+
+
+
+/* ---------side navbar section -------------*/
+
+  .sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    margin-top: 7px;
+    background: rgb(236, 192, 242);
+    overflow-x: hidden;
+    padding: 8px 0;
+  }
+
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #01090f;
+    display: block;
+    margin-top: 15px;
+  }
+  
+  .sidenav a:hover {
+    color: #f0417c;
+  }
+
+
+  
+  /*------------ second section-------------- */
+
+
+   .main {
+    margin-left: 210px; /* Same width as the sidebar + left position in px */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+    margin-top: 10px;
+   }
+  
+   h5{
+    font-weight: bold;
+    color: rgb(3, 37, 48);
+}
+
+ .box{
+     height: 150px;
+     width: 100%;
+     border-radius: 7px;
+     background-color: rgba(16, 181, 41, 0.87);
+     
+}
+
+
+/*------------------------- last section------------- */
+
+.card-group{
+    margin-top: 20px;
+    
+}
+
+.card img{
+    width: 100%;
+    height: 100%;
+}
+
+.card{
+    margin: 10px;
+    height: 347px;
+    
+}
+
+
+.card-header{
+    font-weight: bold;
+    color: rgba(129, 26, 22, 0.9);
+}
+
+
+
+
+
+
+
+  
