@@ -1,33 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.0.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Apr 25, 2021 at 07:48 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.27
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `spms`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `assessment`
---
-
 CREATE TABLE `assessment` (
   `AssessmentNo` int(10) NOT NULL,
   `Marks` int(10) NOT NULL,
@@ -35,9 +5,7 @@ CREATE TABLE `assessment` (
   `SectionID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `assessment`
---
+
 
 INSERT INTO `assessment` (`AssessmentNo`, `Marks`, `CoID`, `SectionID`) VALUES
 (1, 165, 1, 1),
@@ -105,11 +73,7 @@ INSERT INTO `assessment` (`AssessmentNo`, `Marks`, `CoID`, `SectionID`) VALUES
 (63, 50, 3, 2),
 (64, 30, 4, 2);
 
--- --------------------------------------------------------
 
---
--- Table structure for table `co`
---
 
 CREATE TABLE `co` (
   `CoID` int(10) NOT NULL,
@@ -118,9 +82,6 @@ CREATE TABLE `co` (
   `PloID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `co`
---
 
 INSERT INTO `co` (`CoID`, `CoNo`, `CourseID`, `PloID`) VALUES
 (1, 1, 303, 2),
@@ -159,15 +120,11 @@ INSERT INTO `co` (`CoID`, `CoNo`, `CourseID`, `PloID`) VALUES
 (35, 3, 213, 9),
 (36, 4, 213, 10);
 
--- --------------------------------------------------------
 
---
--- Table structure for table `course`
---
 
 CREATE TABLE `course` (
   `CourseID` int(10) NOT NULL,
-  `CourseName` varchar(10) NOT NULL,
+  `CourseName` varchar(50) NOT NULL,
   `noOfCredits` int(10) NOT NULL,
   `ProgramID` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -177,21 +134,103 @@ CREATE TABLE `course` (
 --
 
 INSERT INTO `course` (`CourseID`, `CourseName`, `noOfCredits`, `ProgramID`) VALUES
-(101, '', 3, 'CSE'),
-(104, '', 3, 'CSE'),
-(201, '', 3, 'CSE'),
-(203, '', 3, 'CSE'),
-(204, '', 3, 'CSE'),
-(210, '', 3, 'CSE'),
-(211, '', 3, 'CSE'),
-(213, '', 3, 'CSE'),
-(303, '', 3, 'CSE');
+(101, 'Introduction to Computer Programming', 3, 'CSE'),
+(104, 'Electrical Circuit Analysis', 3, 'CSE'),
+(201, 'Discrete Mathematics', 3, 'CSE'),
+(203, 'Data Structure', 3, 'CSE'),
+(204, 'Digital Logic Design', 3, 'CSE'),
+(210, 'Electronics 1', 3, 'CSE'),
+(211, 'Algorithm', 3, 'CSE'),
+(213, 'Object Oriented Programming', 3, 'CSE'),
+(303, 'Database Management', 3, 'CSE');
 
--- --------------------------------------------------------
 
---
--- Table structure for table `evaluation`
---
+CREATE TABLE `dean` (
+  `DeanName` varchar(30) NOT NULL,
+  `JoinDate` datetime(3) NOT NULL,
+  `LeaveDate` datetime(3) NOT NULL,
+  `SchoolID` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+INSERT INTO `dean` (`DeanName`, `JoinDate`, `LeaveDate`, `SchoolID`) VALUES
+('Yusuf Mahbubul Islam', '2010-01-01 00:00:00.000', '2012-01-01 00:00:00.000', 1);
+
+
+CREATE TABLE `department` (
+  `DepartmentID` varchar(10) NOT NULL,
+  `DepartmentName` varchar(50) NOT NULL,
+  `SchoolID` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO `department` (`DepartmentID`, `DepartmentName`, `SchoolID`) VALUES
+('CSE', 'Computer Science and Engineering ', 1),
+('EEE', 'Electrical and Electronic Engineering', 1),
+('ENV', 'Environmental Science', 3),
+('FIN', 'Finance ', 2),
+('MKT', 'Marketing', 2);
+
+
+CREATE TABLE `departmenthead` (
+  `HeadName` varchar(30) NOT NULL,
+  `JoinDate` datetime(3) NOT NULL,
+  `LeaveDate` datetime(3) NOT NULL,
+  `SchoolID` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO `departmenthead` (`HeadName`, `JoinDate`, `LeaveDate`, `SchoolID`) VALUES
+('Dr.Mahady Hasan', '2010-01-01 00:00:00.000', '2012-01-01 00:00:00.000', 1);
+
+
+CREATE TABLE `enrollment` (
+  `EnrollmentID` int(10) NOT NULL,
+  `StudentID` int(10) NOT NULL,
+  `EnrollmentYear` year(4) NOT NULL,
+  `ProgramID` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO `enrollment` (`EnrollmentID`, `StudentID`, `EnrollmentYear`, `ProgramID`) VALUES
+(1, 1528882, 2015, 1),
+(2, 1612985, 2016, 1),
+(3, 1613273, 2016, 1),
+(4, 1614142, 2016, 1),
+(5, 1614733, 2016, 1),
+(6, 1616161, 2016, 1),
+(7, 1622731, 2016, 1),
+(8, 1623112, 2016, 1),
+(9, 1625654, 2016, 1),
+(10, 1633554, 2016, 1),
+(11, 1634352, 2016, 1),
+(12, 1641252, 2016, 1),
+(13, 1645333, 2016, 1),
+(14, 1646434, 2016, 1),
+(15, 1653725, 2016, 1),
+(16, 1653725, 2016, 1),
+(17, 1654432, 2016, 1),
+(18, 1661638, 2016, 1),
+(19, 1662147, 2016, 1),
+(20, 1665491, 2016, 1),
+(21, 1665555, 2016, 1),
+(22, 1668314, 2016, 1),
+(23, 1669953, 2016, 1),
+(24, 1674181, 2016, 1),
+(25, 1678812, 2016, 1),
+(26, 1691291, 2016, 1),
+(27, 1691483, 2016, 1),
+(28, 1695837, 2016, 1),
+(29, 1696326, 2016, 1),
+(30, 1721527, 2017, 1),
+(31, 1721684, 2017, 1),
+(32, 1721911, 2017, 1),
+(33, 1722006, 2017, 1),
+(34, 1730407, 2017, 1),
+(35, 1730791, 2017, 1),
+(36, 1831050, 2018, 1);
+
 
 CREATE TABLE `evaluation` (
   `EvaluationNo` int(10) NOT NULL,
@@ -199,9 +238,7 @@ CREATE TABLE `evaluation` (
   `AssessmentID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `evaluation`
---
+
 
 INSERT INTO `evaluation` (`EvaluationNo`, `Obtainedmarks`, `AssessmentID`) VALUES
 (1, 55, 1),
@@ -269,11 +306,22 @@ INSERT INTO `evaluation` (`EvaluationNo`, `Obtainedmarks`, `AssessmentID`) VALUE
 (63, 25, 63),
 (64, 24, 64);
 
--- --------------------------------------------------------
 
---
--- Table structure for table `loginuser`
---
+
+CREATE TABLE `instructor` (
+  `InstructorID` int(10) NOT NULL,
+  `InstructorName` varchar(30) NOT NULL,
+  `Gender` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+INSERT INTO `instructor` (`InstructorID`, `InstructorName`, `Gender`) VALUES
+(1234, 'Lamiya Hasan', 'Female'),
+(1426, 'Ms.Sadita Ahmed', 'Female'),
+(4321, 'Rakib Hossain', 'Male');
+
+
 
 CREATE TABLE `loginuser` (
   `userid` int(50) NOT NULL,
@@ -281,28 +329,18 @@ CREATE TABLE `loginuser` (
   `usertype` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `loginuser`
---
+
 
 INSERT INTO `loginuser` (`userid`, `password`, `usertype`) VALUES
 (1426, 'strawberry12', 'Instructor'),
 (1722006, 'strawberry12', 'Student');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `plo`
---
 
 CREATE TABLE `plo` (
   `PloNO` int(10) NOT NULL,
   `ProgramID` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `plo`
---
 
 INSERT INTO `plo` (`PloNO`, `ProgramID`) VALUES
 (1, 'CSE'),
@@ -318,11 +356,33 @@ INSERT INTO `plo` (`PloNO`, `ProgramID`) VALUES
 (11, 'CSE'),
 (12, 'CSE');
 
--- --------------------------------------------------------
 
---
--- Table structure for table `section`
---
+CREATE TABLE `program` (
+  `ProgramID` int(30) NOT NULL,
+  `ProgramName` varchar(30) NOT NULL,
+  `DepartmentID` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO `program` (`ProgramID`, `ProgramName`, `DepartmentID`) VALUES
+(1, 'Computer Science and Engineeri', 'CSE'),
+(2, 'Computer Science', 'CSE'),
+(3, 'Computer Engineering ', 'CSE');
+
+
+
+CREATE TABLE `school` (
+  `SchoolID` int(10) NOT NULL,
+  `SchoolName` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO `school` (`SchoolID`, `SchoolName`) VALUES
+(1, 'School of Computer Science and Engineering '),
+(2, 'School of Business '),
+(3, 'School of Environmental Science and Management');
+
+
 
 CREATE TABLE `section` (
   `SectionID` int(10) NOT NULL,
@@ -331,9 +391,6 @@ CREATE TABLE `section` (
   `FacultyID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `section`
---
 
 INSERT INTO `section` (`SectionID`, `CourseId`, `SectionNo`, `FacultyID`) VALUES
 (1, 303, 1, 1426),
@@ -355,11 +412,20 @@ INSERT INTO `section` (`SectionID`, `CourseId`, `SectionNo`, `FacultyID`) VALUES
 (17, 213, 1, 4567),
 (18, 213, 2, 4567);
 
--- --------------------------------------------------------
 
---
--- Table structure for table `student`
---
+
+CREATE TABLE `semester` (
+  `SemesterID` int(10) NOT NULL,
+  `SemesterName` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO `semester` (`SemesterID`, `SemesterName`) VALUES
+(1, 'Spring'),
+(2, 'Summer'),
+(3, 'Fall');
+
+
 
 CREATE TABLE `student` (
   `StudentID` int(50) NOT NULL,
@@ -367,95 +433,113 @@ CREATE TABLE `student` (
   `Gender` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `student`
---
 
 INSERT INTO `student` (`StudentID`, `Name`, `Gender`) VALUES
-(1528882, '', ''),
-(1612985, '', ''),
-(1613273, '', ''),
-(1614142, '', ''),
-(1614733, '', ''),
-(1616161, '', ''),
-(1622731, '', ''),
-(1623112, '', ''),
-(1625654, '', ''),
-(1633554, '', ''),
-(1634352, '', ''),
-(1641252, '', ''),
-(1645333, '', ''),
-(1646434, '', ''),
-(1653725, '', ''),
-(1654432, '', ''),
-(1661638, '', ''),
-(1662147, '', ''),
-(1665491, '', ''),
-(1665555, '', ''),
-(1668314, '', ''),
-(1669953, '', ''),
-(1674181, '', ''),
-(1678812, '', ''),
-(1691291, '', ''),
-(1691483, '', ''),
-(1695837, '', ''),
-(1696326, '', ''),
+(1528882, 'Asif Khan', 'Male'),
+(1612985, 'Mohammad Kawser', 'Male'),
+(1613273, 'Asaduzzaman Soumit', 'Male'),
+(1614142, 'Marium Islam', 'Female'),
+(1614733, 'Shafi', 'Male'),
+(1616161, 'Shakil', 'Male'),
+(1622731, 'Shakib Khan', 'Male'),
+(1623112, 'Fahim ', 'Male'),
+(1625654, 'Marian Hossian', 'Female'),
+(1633554, 'Sumiya', 'Female'),
+(1634352, 'Rizvi', 'Male'),
+(1641252, 'Tasnia', 'Female'),
+(1645333, 'Rochi', 'Male'),
+(1646434, 'Kabil', 'Male'),
+(1653725, 'Hamid', 'Male'),
+(1654432, 'Karima', 'Female'),
+(1661638, 'Famida', 'Female'),
+(1662147, 'Charlie', 'Male'),
+(1665491, 'Abdullah', 'Male'),
+(1665555, 'Rakib', 'Male'),
+(1668314, 'Zahid Hassan', 'Male'),
+(1669953, 'Saikat Khandoker', 'Male'),
+(1674181, 'Zareen', 'Female'),
+(1678812, 'Tasnova', 'Female'),
+(1691291, 'Saba', 'Female'),
+(1691483, 'Marium', 'Female'),
+(1695837, 'Tamim', 'Male'),
+(1696326, 'Wraith', 'Female'),
+(1721527, 'Md.Sakimuzzaman', 'Male'),
+(1721684, 'MD.Musfiqur Rahaman', 'Male'),
 (1721911, 'Misbahur Rashid', 'Male'),
-(1722006, 'Rafid Al Ahsan', 'Male');
+(1722006, 'Rafid Al Ahsan', 'Male'),
+(1730407, 'Sadia Afroz Alma', 'Female'),
+(1730791, 'Puja Bhowmik', 'Female'),
+(1831050, 'Elan Md Taseen', 'Male');
 
---
--- Indexes for dumped tables
---
 
---
--- Indexes for table `assessment`
---
+
+CREATE TABLE `vc` (
+  `VcID` int(10) NOT NULL,
+  `VcName` varchar(30) NOT NULL,
+  `JoinDate` datetime(5) NOT NULL,
+  `LeaveDate` datetime(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+INSERT INTO `vc` (`VcID`, `VcName`, `JoinDate`, `LeaveDate`) VALUES
+(1, 'M.Omar Rahman', '2010-01-01 00:00:00.00000', '2012-01-01 00:00:00.00000'),
+(2, 'Milan Pagon', '2014-01-01 00:00:00.00000', '2016-01-01 00:00:00.00000');
+
+
 ALTER TABLE `assessment`
   ADD PRIMARY KEY (`AssessmentNo`);
 
---
--- Indexes for table `co`
---
+
 ALTER TABLE `co`
   ADD PRIMARY KEY (`CoID`);
 
---
--- Indexes for table `course`
---
+
 ALTER TABLE `course`
   ADD PRIMARY KEY (`CourseID`);
 
---
--- Indexes for table `evaluation`
---
+
+ALTER TABLE `department`
+  ADD PRIMARY KEY (`DepartmentID`);
+
+
+ALTER TABLE `enrollment`
+  ADD PRIMARY KEY (`EnrollmentID`);
+
+
 ALTER TABLE `evaluation`
   ADD PRIMARY KEY (`EvaluationNo`);
 
---
--- Indexes for table `loginuser`
---
+
+ALTER TABLE `instructor`
+  ADD PRIMARY KEY (`InstructorID`);
+
+
 ALTER TABLE `loginuser`
   ADD PRIMARY KEY (`userid`);
 
---
--- Indexes for table `plo`
---
+
 ALTER TABLE `plo`
   ADD PRIMARY KEY (`PloNO`);
 
---
--- Indexes for table `section`
---
+
+ALTER TABLE `program`
+  ADD PRIMARY KEY (`ProgramID`);
+
+
+ALTER TABLE `school`
+  ADD PRIMARY KEY (`SchoolID`);
+
+
 ALTER TABLE `section`
   ADD PRIMARY KEY (`SectionID`);
 
---
--- Indexes for table `student`
---
+
 ALTER TABLE `student`
   ADD PRIMARY KEY (`StudentID`);
+
+
+ALTER TABLE `vc`
+  ADD PRIMARY KEY (`VcID`);
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
