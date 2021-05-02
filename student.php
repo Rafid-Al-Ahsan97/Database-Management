@@ -13,10 +13,7 @@
         <h2>SPMS</h2>
         <ul>
             <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
-            <li><a href="#"><i class="fas fa-user"></i>Data Entry</a></li>
             <li><a href="#"><i class="fas fa-address-card"></i>Student Report</a></li>
-            <li><a href="#"><i class="fas fa-project-diagram"></i>Course Report</a></li>
-            <li><a href="#"><i class="fas fa-address-book"></i>Evaluation</a></li>
             <li><a href="#"><i class="fas fa-map-pin"></i>Log Out</a></li>
         </ul> 
         
