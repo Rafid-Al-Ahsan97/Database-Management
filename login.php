@@ -29,6 +29,12 @@ if(isset($_POST['Login'])){
             <?php
         }
 
+        else if($usertype=="Admin"){
+            ?>
+            <script type="text/javascript">window.location.href="admin.php"</script>
+            <?php
+        }
+
     }
 
     else{
@@ -66,6 +72,7 @@ if(isset($_POST['Login'])){
             <select name="usertype">
                 <option value="Student">Student</option>
                 <option value="Instructor">Instructor</option>
+                <option value="Admin">Admin</option>
             </select>
 
             <input type="submit" name="Login" value="Login">
