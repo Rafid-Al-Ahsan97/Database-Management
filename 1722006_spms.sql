@@ -128,43 +128,23 @@ INSERT INTO `co` (`CoID`, `CoNo`, `CourseID`, `PloID`) VALUES
 (36, 4, 213, 10);
 
 
-
-CREATE TABLE `contribution` (
-  `student` text NOT NULL,
-  `contribution` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-
-INSERT INTO `contribution` (`student`, `contribution`) VALUES
-('CSE', 250),
-('EEE', 200),
-('BBA', 258),
-('Life Science', 258),
-('Pharmacy', 258),
-('ENV', 100);
-
-
-
 CREATE TABLE `course` (
   `CourseID` int(10) NOT NULL,
   `CourseName` varchar(50) NOT NULL,
   `noOfCredits` int(10) NOT NULL,
-  `ProgramID` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
+  `ProgramID` int(5) NOT NULL
+) 
 
 INSERT INTO `course` (`CourseID`, `CourseName`, `noOfCredits`, `ProgramID`) VALUES
-(101, 'Introduction to Computer Programming', 3, 'CSE'),
-(104, 'Electrical Circuit Analysis', 3, 'CSE'),
-(201, 'Discrete Mathematics', 3, 'CSE'),
-(203, 'Data Structure', 3, 'CSE'),
-(204, 'Digital Logic Design', 3, 'CSE'),
-(210, 'Electronics 1', 3, 'CSE'),
-(211, 'Algorithm', 3, 'CSE'),
-(213, 'Object Oriented Programming', 3, 'CSE'),
-(303, 'Database Management', 3, 'CSE');
+(101, 'Introduction to Computer Programming', 3, 1),
+(104, 'Electrical Circuit Analysis', 3, 1),
+(201, 'Discrete Mathematics', 3, 1),
+(203, 'Data Structure', 3, 1),
+(204, 'Digital Logic Design', 3, 1),
+(210, 'Electronics 1', 3, 1),
+(211, 'Algorithm', 3, 1),
+(213, 'Object Oriented Programming', 3, 1),
+(303, 'Database Management', 3, 1);
 
 
 
